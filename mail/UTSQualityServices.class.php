@@ -30,6 +30,6 @@ class PrimaryClass
     }
 
     public function testing() {
-        echo "Hello, World! Testing phase one complete.";
+        echo $_POST["data"][0];
     }
 }

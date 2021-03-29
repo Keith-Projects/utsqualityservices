@@ -21,6 +21,17 @@ clientLocation.addEventListener("change", function () {
 });
 form.addEventListener("submit", function (e) {
   e.preventDefault();
+
+  // append data
+  // name
+  formData.append("data[]", name.value);
+  // phone number
+  formData.append("data[]", phoneNumber.value);
+  // location
+  formData.append("data[]", clientLocation.value);
+  //other location
+  formData.append("data[]", otherLocation.value);
+
   xhr.open("POST", endPointURL, true);
   xhr.send(formData);
 

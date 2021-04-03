@@ -7,7 +7,7 @@ const otherLocation = document.getElementById("ChoseOtherLocation");
 const successMsg = "";
 const errorMsg = "";
 const submitBtn = document.getElementById("sendMessageButton2");
-const endPointURL = "mail/starter.php?action=testing";
+const endPointURL = "mail/starter.php?action=SendMail";
 const xhr = new XMLHttpRequest();
 const formData = new FormData();
 
@@ -37,11 +37,25 @@ form.addEventListener("submit", function (e) {
 
   xhr.onreadystatechange = function () {
     if (this.status === 200 && this.readyState === 4) {
-      // test and will be taken out in production
-      alert(xhr.responseText);
-      return false;
       const dataObj = JSON.parse(xhr.responseText);
-      // message goes here
+      if (dataObj.answer == "yes") {
+        let modalHeader = document.getElementById(
+          "bookAppointmentPopUp-header"
+        );
+        let modalBody = document.getElementById("modal-body-form");
+        // change the modal header h2 text
+        modalHeader.innerHTML = "Thank You!";
+        // change the modal body
+        let pText = document.createElement("p");
+        pText.innerHTML =
+          "A manager will be in contact with you soon to help book your appointment.";
+        modalBody.innerHTML = "";
+        modalBody.append(pText);
+        let dismissBtn = document.getElementById("dismissBtn");
+        dismissBtn.addEventListener("click", function () {
+          location.reload();
+        });
+      }
     }
   };
 });

@@ -29,7 +29,26 @@ class PrimaryClass
         }
     }
 
-    public function testing() {
+    public function SendMail()
+    {
+        $name = $_POST["data"][0];
+        $phoneNumber = $_POST["data"][1];
+        $ClientLocation = $_POST["data"][2];
+        $otherLocation = $_POST["data"][3];
+
+        $to = "keith.blackwelder@ktbwebservices.com";
+        $subject = "Website contact form submitted.";
+        $body = "You have received a new message from your website contact form.\n\n" . "Here are the details:\n\nName: $name\n\nPhone: $phoneNumber\n\nLocation: $ClientLocation\n\n\nOther Location: $otherLocation";
+
+        if (mail($to, $subject, $body)) {
+            echo json_encode(["answer" => "yes"]);
+        } else {
+            echo json_encode(["answer" => "no"]);
+        }
+    }
+
+    public function testing()
+    {
         echo $_POST["data"][0];
     }
 }

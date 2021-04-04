@@ -40,7 +40,7 @@ class PrimaryClass
         $subject = "Website contact form submitted.";
         $body = "You have received a new message from your website contact form.\n\n" . "Here are the details:\n\nName: $name\n\nPhone: $phoneNumber\n\nLocation: $ClientLocation\n\n\nOther Location: $otherLocation";
 
-        if (mail($to, $subject, $body)) {
+        if (mail($to, $subject, $body, "From: info@utsqualityservices.com")) {
             echo json_encode(["answer" => "yes"]);
         } else {
             echo json_encode(["answer" => "no"]);

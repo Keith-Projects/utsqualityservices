@@ -15,8 +15,5 @@ $to = "keith.blackwelder@ktbwebservices.com";
 $subject = "Website Contact Form:  $name";
 $body = "You have received a new message from your website contact form.\n\n" . "Here are the details:\n\nName: $name\n\nPhone: $phone\n\nFormID: $formId\n\nMessage:\n$message";
 
-if (!mail($to, $subject, $body)) {
+if (!mail($to, $subject, $body, "From: info@utsqualityservices.com"))
   http_response_code(500);
-} else {
-  echo "EMAIL WAS SENT";
-}

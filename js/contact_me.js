@@ -27,8 +27,6 @@ $(function () {
         },
         cache: false,
         success: function (d) {
-          alert(d);
-          return false;
           // Success message
           $("#success").html("<div class='alert alert-success'>");
           $("#success > .alert-success")

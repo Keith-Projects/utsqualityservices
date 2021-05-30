@@ -1,0 +1,5 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Disallow: /mail/
+
+Sitemap: http://utsqualityservices.com/sitemap.xml

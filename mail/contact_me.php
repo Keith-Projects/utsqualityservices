@@ -2,7 +2,7 @@
 // Check for empty fields
 if (empty($_POST['name']) || empty($_POST['phone']) || empty($_POST['message'])) {
   echo "empty array";
-  //exit();
+  exit();
 }
 
 $name = strip_tags(htmlspecialchars($_POST['name']));
